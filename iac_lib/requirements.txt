@@ -1,0 +1,10 @@
+netmiko
+configparser
+ipaddress
+requests
+pyvmomi
+jinja2
+paramiko
+scp
+ldap3
+gitpython

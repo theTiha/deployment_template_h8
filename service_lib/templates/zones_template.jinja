@@ -1,0 +1,13 @@
+zone "{{ for_zone }}" IN {
+    type master;
+    file "{{ for_file }}";
+    allow-update { key "rndc-key"; };
+    allow-transfer { 172.16.252.3; };
+};
+
+zone "{{ rev_zone }}.in-addr.arpa" {
+    type primary;
+    file "{{ rev_file }}";
+    allow-update { key "rndc-key"; };
+    allow-transfer { 172.16.252.3; };
+};

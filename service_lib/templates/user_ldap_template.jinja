@@ -1,0 +1,19 @@
+dn: uid={{ user_Uid }},ou={{ uniqueId }},ou=customers,dc=cloudcubes,dc=gg
+objectClass: inetOrgPerson
+objectClass: posixAccount
+objectClass: shadowAccount
+uid: {{ user_Uid }}
+sn: {{ sur_name }}
+givenName: {{ first_name }}
+cn: {{ first_name }} {{ sur_name }}
+displayName: {{ first_name }} {{ sur_name }}
+uidNumber: {{ ldap_Uid_Nr }}
+gidNumber: {{ ldap_Gid_Nr }}
+userPassword: {{ ldap_Pass }}
+gecos: {{ capital_name }}
+loginShell: /bin/bash
+homeDirectory: /home/{{ user_Uid }}
+mail: {{ user_Uid }}@{{ uniqueId }}.cloudcubes.gg
+
+dn: cn={{ uniqueId }}_vpn,ou={{ uniqueId }},ou=customers,dc=cloudcubes,dc=gg
+member: uid={{ user_Uid }},ou={{ uniqueId }},ou=customers,dc=cloudcubes,dc=gg

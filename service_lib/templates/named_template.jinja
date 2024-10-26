@@ -1,0 +1,18 @@
+acl internal {
+    {% for subnet in internal_subnets -%}
+    {{ subnet }};
+    {% endfor %}
+};
+
+options {
+    forwarders {
+        {% for forward in forwarders -%}
+        {{ forward }};
+        {% endfor %}
+    };
+    allow-query { internal; };
+};
+
+{% for include in include_files -%}
+{{ include }}
+{% endfor %}

@@ -1,0 +1,16 @@
+dn: ou={{ uniqueId }},ou=customers,dc=cloudcubes,dc=gg
+objectClass: top
+objectClass: organizationalUnit
+description: {{ customerName }}
+ou: {{ uniqueId }}
+
+dn: cn={{ uniqueId }}_admins,ou={{ uniqueId }},ou=customers,dc=cloudcubes,dc=gg
+objectClass: top
+objectClass: posixGroup
+cn: {{ uniqueId }}_admins
+gidNumber: {{ ldap_Gid_Nr }}
+
+dn: cn={{ uniqueId }}_vpn,ou={{ uniqueId }},ou=customers,dc=cloudcubes,dc=gg
+objectClass: groupOfNames
+cn: {{ uniqueId }}_vpn
+member: uid={{ user_Uid }},ou={{ uniqueId }},ou=customers,dc=cloudcubes,dc=gg

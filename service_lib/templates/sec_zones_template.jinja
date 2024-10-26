@@ -1,0 +1,11 @@
+zone "{{ for_zone }}" IN {
+    type secondary;
+    file "{{ for_file }}";
+    primaries { 172.16.252.2; };
+};
+
+zone "{{ rev_zone }}.in-addr.arpa" {
+    type secondary;
+    file "{{ rev_file }}";
+    primaries { 172.16.252.2; };
+};
